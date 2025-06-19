@@ -1,21 +1,22 @@
 let flavors = prompt(
-    "Please enter your favorite froyo flavors here",
-    "vanilla,vanilla,vanilla,strawberry,coffee,coffee")
-
-console.log(flavors);
+  "Please enter your favorite froyo flavors here",
+  "vanilla,vanilla,vanilla,strawberry,coffee,coffee"
+);
 
 flavors = flavors.split(",");
 
 console.log(flavors);
 
-countFlavors = {};
-
-for (flavor of flavors) {
-    if (countFlavors[flavor]) {
-        countFlavors[flavor] += 1;
+const flavorCount = (flavors) => {
+  const count = {};
+  for (flavor of flavors) {
+    if (count[flavor]) {
+      (count[flavor] += 1);
     } else {
-        countFlavors[flavor] = 1;
+      (count[flavor] = 1);
     }
-}
+  }
+  return count;
+};
 
-console.log(countFlavors);
+console.log(flavorCount(flavors));
